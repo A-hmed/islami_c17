@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:islami_c17/ui/utils/app_colors.dart';
 
 abstract final class AppStyles {
-
   static const TextStyle whiteBold20 = TextStyle(
     fontSize: 20,
     color: AppColors.white,
@@ -25,6 +24,11 @@ abstract final class AppStyles {
   );
   static const TextStyle lightBlackBold16 = TextStyle(
     fontSize: 16,
+    color: AppColors.lightBlack,
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle lightBlackBold14 = TextStyle(
+    fontSize: 14,
     color: AppColors.lightBlack,
     fontWeight: FontWeight.bold,
   );
