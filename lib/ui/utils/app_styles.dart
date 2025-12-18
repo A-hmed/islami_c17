@@ -7,6 +7,7 @@ abstract final class AppStyles {
     fontSize: 20,
     color: AppColors.white,
     fontWeight: FontWeight.bold,
+    fontFamily: "assets/sd"
   );
   static const TextStyle whiteBold14 = TextStyle(
     fontSize: 14,
