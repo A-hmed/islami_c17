@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c17/ui/screens/main/tabs/quran/most_recent_sura.dart';
+import 'package:islami_c17/ui/screens/main/tabs/quran/sura_row.dart';
 import 'package:islami_c17/ui/utils/app_assets.dart';
 import 'package:islami_c17/ui/utils/app_colors.dart';
 import 'package:islami_c17/ui/utils/app_styles.dart';
+import 'package:islami_c17/ui/utils/constants.dart';
 
-class Quran extends StatelessWidget {
+class Quran extends StatefulWidget {
   const Quran({super.key});
 
+  @override
+  State<Quran> createState() => _QuranState();
+}
+
+class _QuranState extends State<Quran> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,13 +27,18 @@ class Quran extends StatelessWidget {
       ),
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Image.asset(AppAssets.islamiLogo),
           SizedBox(height: 16),
           buildSuraNameTextField(),
-          SizedBox(height: 20,),
-          Expanded(flex: 3, child: buildMostRecentList()),
-          Spacer(flex: 7),
+          SizedBox(height: 20),
+          Text(
+            "Sura List",
+            style: AppStyles.whiteBold16,
+            textAlign: TextAlign.start,
+          ),
+          Expanded(child: buildSuraListView()),
         ],
       ),
     );
@@ -59,42 +72,22 @@ class Quran extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("Most Recent", style: AppStyles.whiteBold16),
-        SizedBox(height: 10,),
+        SizedBox(height: 10),
         Expanded(
           child: ListView.builder(
             itemCount: 10,
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => buildMostRecentSuraItem(context),
+            itemBuilder: (context, index) => MostRecentSura(),
           ),
         ),
       ],
     );
   }
 
-  buildMostRecentSuraItem(BuildContext context) => Container(
-    margin: EdgeInsets.symmetric(horizontal: 5),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
-      color: AppColors.gold,
-    ),
-    height: MediaQuery.of(context).size.height * .15,
-    width: MediaQuery.of(context).size.width * .8,
-    child: Row(
-      children: [
-        SizedBox(width: 16),
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Al-Anbiya", style: AppStyles.lightBlackBold24),
-              Text("الأنبياء", style: AppStyles.lightBlackBold24),
-              Text("112 Verses", style: AppStyles.lightBlackBold14),
-            ],
-          ),
-        ),
-        Image.asset(AppAssets.imgMostRecent),
-      ],
-    ),
+  buildSuraListView() => ListView.separated(
+    itemCount: suras.length,
+    padding: EdgeInsets.zero,
+    itemBuilder: (context, index) => SuraRow(suraDM: suras[index]),
+    separatorBuilder: (_, _) => Divider(indent: 50, endIndent: 50),
   );
 }
