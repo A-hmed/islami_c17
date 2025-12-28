@@ -14,4 +14,7 @@ abstract final class AppAssets {
   static const String islamiLogo = '${_base}islami_logo.png';
   static const String imgLeftCorner = '${_base}img_left_corner.png';
   static const String imgRightCorner = '${_base}img_right_corner.png';
+  static const String ahadethTabBg = '${_base}ahadeth_tab_bg.png';
+  static const String hadethCardBg = '${_base}hadeth_card_bg.png';
+
 }

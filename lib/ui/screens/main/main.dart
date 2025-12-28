@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c17/ui/screens/main/tabs/ahadeth/ahadeth.dart';
 import 'package:islami_c17/ui/screens/main/tabs/quran/quran.dart';
 import 'package:islami_c17/ui/utils/app_assets.dart';
 import 'package:islami_c17/ui/utils/app_colors.dart';
@@ -12,10 +13,10 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  int selectedTabIndex = 0;
+  int selectedTabIndex = 1;
   List<Widget> tabs = [
     Quran(),
-    Container(color: Colors.green,),
+    Ahadeth(),
     Container(color: Colors.yellow,),
     Container(color: Colors.black,),
     Container(color: Colors.blue,)
