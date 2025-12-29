@@ -13,7 +13,7 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  int selectedTabIndex = 1;
+  int selectedTabIndex = 0;
   List<Widget> tabs = [
     Quran(),
     Ahadeth(),

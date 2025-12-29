@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c17/ui/screens/main/tabs/quran/sura_dm.dart';
 import 'package:islami_c17/ui/utils/app_assets.dart';
 import 'package:islami_c17/ui/utils/app_colors.dart';
 import 'package:islami_c17/ui/utils/app_styles.dart';
 
 class MostRecentSura extends StatelessWidget {
-  const MostRecentSura({super.key});
+  final SuraDM sura;
+  const MostRecentSura({super.key, required this.sura});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +26,9 @@ class MostRecentSura extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Al-Anbiya", style: AppStyles.lightBlackBold24),
-                Text("الأنبياء", style: AppStyles.lightBlackBold24),
-                Text("112 Verses", style: AppStyles.lightBlackBold14),
+                Text(sura.nameEn, style: AppStyles.lightBlackBold24),
+                Text(sura.nameAr, style: AppStyles.lightBlackBold24),
+                Text("${sura.verses} Verses", style: AppStyles.lightBlackBold14),
               ],
             ),
           ),
